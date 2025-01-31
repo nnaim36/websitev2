@@ -47,3 +47,93 @@
   border-radius: 50%;
   object-fit: cover;
 }
+.intro {
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: space-between; /* Push elements to the sides */
+  height: 100vh; /* Full viewport height */
+  padding: 0 10%; /* Add spacing on the sides */
+}
+
+.profile-picture img {
+  width: 200px; /* Adjust as needed */
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.quote {
+  font-size: 1.5rem;
+  font-style: italic;
+  max-width: 40%; /* Limit width */
+  text-align: right;
+}
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #333;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  flex-wrap: nowrap; /* Ensure content doesn't wrap */
+
+  overflow: hidden; /* Prevent content from getting cut */
+  width: calc(100% - 30px); /* Leaves space for scrollbar */
+  padding-right: 20px;
+}
+
+.top-nav h1 {
+  color: yellow;
+  margin: 0;
+}
+
+.top-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.top-nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+section {
+  height: 100vh; /* Make each section take full screen */
+  padding: 100px 20px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@media (max-width: 600px) {
+  .top-nav ul {
+      flex-wrap: wrap; /* Allow items to wrap on small screens */
+  }
+}
+.top-nav ul li a:hover {
+  color: yellow; /* Change text color to yellow */
+  font-size: 16px; /* Increase text size */
+  text-shadow: 0px 0px 5px rgba(255, 255, 0, 0.7); /* Optional glow effect */
+}
+
+.top-nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 5px 12px;
+  transition: all 0.3s ease-in-out; /* Smooth transition effect */
+}
+
+
+.education-image img {
+  width: 150px; /* Adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+}

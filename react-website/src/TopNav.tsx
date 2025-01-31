@@ -1,13 +1,16 @@
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-function TopNav() (
-    <nav className="top-nav">
-        <h1>My Portfolio</h1>
-        <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/education">Education</Link></li>
-            <li><Link to="/work">Work Experience</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-        </ul>
-    </nav>
-);
+
+function TopNav() {
+    return(
+        <nav className="top-nav">
+            <h1>Nile Naim</h1>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#work">Work Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    )
+};
 export default TopNav;
