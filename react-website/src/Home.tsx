@@ -2,10 +2,15 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import BottomNav from "./bottomNav";
 import TopNav from "./TopNav";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ContactForm from "./ContactForm";
 
 
 function Home() {
+    
+
+
     return(
+        
     <section id="home">
         <TopNav />
         
@@ -92,33 +97,60 @@ This experience allowed me to develop a strong technical foundation while gainin
                 
             </div>
         </div>
+
+        {/* Education section */}
         <div className="education" id="education-list">
             <h2>Education</h2>
             <div className="text-design">
                 <div className="left-side-td"></div>
                 <div className="right-side-td"></div>
             </div>
-            <div className="education-image">
-                <img src="../public/Northeastern-University-Logo.png" alt="" />
-            </div>
             <div className="education-content">
-
+                <div className="education-image">
+                    <img src="../public/Northeastern-University-Logo.png" 
+                    alt="Northeastern logo" 
+                    className="img-fluid"/>
+                </div>
+                {/* Master's Degree Section */}
+                <div className="education-information">
+                    <p>Northeastern University</p>
+                    <p>Master's in Computer Science</p>
+                    <h5>Courses:</h5>
+                    <ul>
+                        <li>Database management</li>
+                        <li>Fundamentals of computer Networking</li>
+                        <li>computer systems</li>
+                        <li>Mobile App Development</li>
+                        <li>Web Development</li>
+                        <li>software Development</li>
+                    </ul>
+                </div>
             </div>
-            <ul>
-                <li>Northeastern University - Masters in Computer Science</li>
-                <li>Northeastern University - Bachalors of schience Mechanical Engineering</li>
-            </ul>
+            {/* Bachelor's Degree Section */}
+            <div className="education-content">
+                <div className="education-image">
+                    <img src="../public/Northeastern-University-Logo.png" 
+                    alt="Northeastern logo" />
+                </div>
+                <div className="education-information">
+                    <p>Northeastern University</p>
+                    <p>Bachelor's of science in Mechanical Engineering</p>
+
+                </div>
+            </div>
         </div>
+
+
+        {/* Contact section */}
         <div className="contact">
             <h2>Contact Me</h2>
             <div className="text-design">
                 <div className="left-side-td"></div>
                 <div className="right-side-td"></div>
             </div>
-            <ul>
-                <li>Email: example@email.com</li>
-                <li>LinkedIn: <a href="https://linkedin.com/in/example" target="_blank" rel="noopener noreferrer">My LinkedIn</a></li>
-            </ul>
+
+            <ContactForm/>
+
         </div>
 
         <div className="bottom-nav">

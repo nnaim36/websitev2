@@ -1,0 +1,85 @@
+import { useState } from "react";
+import { Modal, Button } from "react-bootstrap";
+
+const Education = () => {
+    const [show, setShow] = useState(false);
+    const [selectedCourse, setSelectedCourse] = useState({ name: "", description: "" });
+
+    const handleShow = (course) => {
+        setSelectedCourse(course);
+        setShow(true);
+    };
+
+    const handleClose = () => setShow(false);
+
+    const courses = [
+        { name: "Database Management", description: "Covers relational databases, SQL, and NoSQL databases." },
+        { name: "Fundamentals of Computer Networking", description: "Covers TCP/IP, networking protocols, and cybersecurity basics." },
+        { name: "Computer Systems", description: "Includes operating systems, hardware-software interaction, and system programming." },
+        { name: "Mobile App Development", description: "Teaches Android and iOS app development." },
+        { name: "Web Development", description: "Focuses on frontend and backend web technologies." },
+        { name: "Software Development", description: "Covers software engineering principles and best practices." },
+    ];
+
+    return (
+        <div className="container my-5" id="education-list">
+            <h2 className="mb-4">Education</h2>
+
+            {/* Master's Degree */}
+            <div className="row mb-5 align-items-center">
+                <div className="col-md-4 d-flex justify-content-center">
+                    <img
+                        src="../public/Northeastern-University-Logo.png"
+                        alt="Northeastern logo"
+                        className="img-fluid"
+                    />
+                </div>
+                <div className="col-md-8 text-start">
+                    <p><strong>Northeastern University</strong></p>
+                    <p>Master's in Computer Science</p>
+                    <h5>Courses:</h5>
+                    <ul className="list-group">
+                        {courses.map((course, index) => (
+                            <li
+                                key={index}
+                                className="list-group-item list-group-item-action"
+                                onClick={() => handleShow(course)}
+                                style={{ cursor: "pointer" }}
+                            >
+                                {course.name}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+
+            {/* Bachelor's Degree */}
+            <div className="row align-items-center">
+                <div className="col-md-4 d-flex justify-content-center">
+                    <img
+                        src="../public/Northeastern-University-Logo.png"
+                        alt="Northeastern logo"
+                        className="img-fluid"
+                    />
+                </div>
+                <div className="col-md-8 text-start">
+                    <p><strong>Northeastern University</strong></p>
+                    <p>Bachelor's of Science in Mechanical Engineering</p>
+                </div>
+            </div>
+
+            {/* Modal for Course Details */}
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>{selectedCourse.name}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{selectedCourse.description}</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>Close</Button>
+                </Modal.Footer>
+            </Modal>
+        </div>
+    );
+};
+
+export default Education;
