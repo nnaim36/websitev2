@@ -3,30 +3,53 @@ import BottomNav from "./bottomNav";
 import TopNav from "./TopNav";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ContactForm from "./ContactForm";
+import Education from "./Education";
+import { useEffect, useState, useRef } from "react";
 
 
 function Home() {
+    const [isVisible, setIsVisible] = useState(false);
+    const quoteRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              setIsVisible(true);
+            }
+          },
+          { threshold: 0.5 } // Triggers when 50% of the element is visible
+        );
     
+        if (quoteRef.current) {
+          observer.observe(quoteRef.current);
+        }
+        return () => {
+            if (quoteRef.current) {
+              observer.unobserve(quoteRef.current);
+            }
+          };
+        }, []);
 
 
     return(
         
     <section id="home">
         <TopNav />
-        
+
         <div className="intro">
             <div className="profile-picture">
-                <img src="../public/profileTemp.jpg" alt="Profile" className="circular-image" />
+                <img src="../public/profile.jpeg" alt="Profile" className="circular-image" />
             </div>
-            <div className="quote">
-                <p>"Your inspirational quote here."</p>
+            <div className={`quote ${isVisible ? "visible" : ""}`} ref={quoteRef}>
+                <p>"It always seems impossible until it’s done." – Nelson Mandela</p>
             </div>
         </div>
         <div className="border w-100 vh-10 overflow-hidden">
             <img src="../public/banner3.png" alt="forest banner" className="w-100 h-100 object-fit-cover" />
         </div>
         <section id="home-body">
-        <div className="about" id="about-me">
+        <div className="about" id="about">
             <h2>About Me</h2>
             <div className="text-design">
                 <div className="left-side-td"></div>
@@ -99,50 +122,12 @@ This experience allowed me to develop a strong technical foundation while gainin
         </div>
 
         {/* Education section */}
-        <div className="education" id="education-list">
-            <h2>Education</h2>
-            <div className="text-design">
-                <div className="left-side-td"></div>
-                <div className="right-side-td"></div>
-            </div>
-            <div className="education-content">
-                <div className="education-image">
-                    <img src="../public/Northeastern-University-Logo.png" 
-                    alt="Northeastern logo" 
-                    className="img-fluid"/>
-                </div>
-                {/* Master's Degree Section */}
-                <div className="education-information">
-                    <p>Northeastern University</p>
-                    <p>Master's in Computer Science</p>
-                    <h5>Courses:</h5>
-                    <ul>
-                        <li>Database management</li>
-                        <li>Fundamentals of computer Networking</li>
-                        <li>computer systems</li>
-                        <li>Mobile App Development</li>
-                        <li>Web Development</li>
-                        <li>software Development</li>
-                    </ul>
-                </div>
-            </div>
-            {/* Bachelor's Degree Section */}
-            <div className="education-content">
-                <div className="education-image">
-                    <img src="../public/Northeastern-University-Logo.png" 
-                    alt="Northeastern logo" />
-                </div>
-                <div className="education-information">
-                    <p>Northeastern University</p>
-                    <p>Bachelor's of science in Mechanical Engineering</p>
-
-                </div>
-            </div>
-        </div>
-
+        <section id="education">
+            <Education id="education"/>
+        </section>
 
         {/* Contact section */}
-        <div className="contact">
+        <div className="contact" id = "contact">
             <h2>Contact Me</h2>
             <div className="text-design">
                 <div className="left-side-td"></div>

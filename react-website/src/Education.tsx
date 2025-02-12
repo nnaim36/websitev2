@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Modal, Button } from "react-bootstrap";
 
 const Education = () => {
@@ -24,43 +25,42 @@ const Education = () => {
     return (
         <div className="container my-5" id="education-list">
             <h2 className="mb-4">Education</h2>
+            <div className="text-design">
+                <div className="left-side-td"></div>
+                <div className="right-side-td"></div>
+            </div>
 
             {/* Master's Degree */}
             <div className="row mb-5 align-items-center">
                 <div className="col-md-4 d-flex justify-content-center">
-                    <img
-                        src="../public/Northeastern-University-Logo.png"
-                        alt="Northeastern logo"
-                        className="img-fluid"
-                    />
+                    <img src="/Northeastern-University-Logo.png" alt="Northeastern logo" className="img-fluid" />
                 </div>
                 <div className="col-md-8 text-start">
                     <p><strong>Northeastern University</strong></p>
                     <p>Master's in Computer Science</p>
                     <h5>Courses:</h5>
-                    <ul className="list-group">
+
+                    <div className="row">
                         {courses.map((course, index) => (
-                            <li
-                                key={index}
-                                className="list-group-item list-group-item-action"
-                                onClick={() => handleShow(course)}
-                                style={{ cursor: "pointer" }}
-                            >
-                                {course.name}
-                            </li>
+                            <div key={index} className="col-md-6">
+                                <li
+                                    className="list-group-item list-group-item-action"
+                                    onClick={() => handleShow(course)}
+                                    style={{ cursor: "pointer" }}
+                                >
+                                    {course.name}
+                                </li>
+                            </div>
                         ))}
-                    </ul>
+                    </div>
+
                 </div>
             </div>
 
             {/* Bachelor's Degree */}
             <div className="row align-items-center">
                 <div className="col-md-4 d-flex justify-content-center">
-                    <img
-                        src="../public/Northeastern-University-Logo.png"
-                        alt="Northeastern logo"
-                        className="img-fluid"
-                    />
+                    <img src="/Northeastern-University-Logo.png" alt="Northeastern logo" className="img-fluid" />
                 </div>
                 <div className="col-md-8 text-start">
                     <p><strong>Northeastern University</strong></p>
@@ -69,7 +69,7 @@ const Education = () => {
             </div>
 
             {/* Modal for Course Details */}
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>{selectedCourse.name}</Modal.Title>
                 </Modal.Header>
