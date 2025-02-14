@@ -1,15 +1,56 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaQuestion } from "react-icons/fa";
 import BottomNav from "./bottomNav";
 import TopNav from "./TopNav";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ContactForm from "./ContactForm";
 import Education from "./Education";
 import { useEffect, useState, useRef } from "react";
+import { Modal, Button } from "react-bootstrap";
 
 
 function Home() {
     const [isVisible, setIsVisible] = useState(false);
     const quoteRef = useRef(null);
+
+    
+    const [showCompany,setShowCompany] = useState(false);
+    const [selectedCompany, setSelectedCompany] = useState({ name: "", description: "" });
+
+    const handleShowCompany = (company) => {
+        setSelectedCompany(company);
+        setShowCompany(true);
+    }
+
+    const handleCloseCompany = () => setShowCompany(false);
+
+
+    const companies = [
+        { name: "Carlson Software",
+            description: `Founded in 1983, Carlson Software specializes in CAD design software, field data collection, 
+        and machine control products for the land surveying, civil engineering, construction, and mining industries 
+        worldwide, providing one-source technology solutions from data collection to design to construction. Carlson 
+        Software’s renowned dedication to customer service is unique in the industry.`
+        },
+        { name: "Third Pole Therapeutics",
+            description: `The core technology of the device is based on innovations developed by the head of Third Pole’s 
+        Scientific Advisory Board, Professor Warren Zapol at Harvard’s Massachusetts General Hospital. Professor Zapol 
+        was flying from Boston to Los Angeles to visit a colleague, who won the Nobel Prize for the discovery of NO’s biological 
+        role, when lightning inspired his pioneering idea to use electric current to produce NO. 
+        After meticulous follow-up work in his lab, and careful testing over several years, Professor Zapol and the Third Pole team 
+        developed an investigational device that uses proprietary technology to produce pure NO for inhalation on-demand from air, 
+        enabling bedside and portable therapeutic use.`
+        },
+        { name: "Keolis",
+            description: `Keolis Commuter Services operates the Massachusetts Bay Transportation Authority’s 14 
+        commuter rail lines serving the Greater Boston region and Rhode Island. Since Keolis began operations 
+        in 2014, the Commuter Rail’s on-time performance and reliability are better than ever, contributing to 
+        its best in the nation ridership return. 
+
+        As the nation’s fifth-busiest rail system, MBTA Commuter Rail serves nearly 90,000 passengers on weekdays.`
+        },
+    ];
+
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -32,6 +73,8 @@ function Home() {
         }, []);
 
 
+
+
     return(
         
     <section id="home">
@@ -39,7 +82,8 @@ function Home() {
 
         <div className="intro">
             <div className="profile-picture">
-                <img src="../public/profile.jpeg" alt="Profile" className="circular-image" />
+            <img src="../public/profile.jpeg" alt="Profile" className="circular-image" />
+            <h2 className="profile-title">Software Developer</h2>
             </div>
             <div className={`quote ${isVisible ? "visible" : ""}`} ref={quoteRef}>
                 <p>"It always seems impossible until it’s done." – Nelson Mandela</p>
@@ -70,7 +114,14 @@ function Home() {
             </div>
             <div className="container mt-5">
             <div className="card p-4 shadow-lg">
-            <h3 className="company-name">Carlson Software:</h3>
+            <div className="d-flex align-items-center">
+                <h3 className="company-name me-2">Carlson Software:</h3> 
+                <button className="btn btn-dark rounded-circle d-flex align-items-center justify-content-center company-info-button" 
+                onClick={() => handleShowCompany(companies[0])}
+                >
+                    <FaQuestion />
+                </button>
+            </div>
             <div className="work-experience">
                 <div className="work-experience-image">
                     <img src="../public/Carlson-Pyramid-Logo.png" alt="Carlson Software Logo" />
@@ -90,7 +141,13 @@ function Home() {
 
             <div className="container mt-5">
             <div className="card p-4 shadow-lg">
-            <h3 className="company-name">Third Pole Therapeutics:</h3>
+            <div className="d-flex align-items-center">
+                <h3 className="company-name me-2">Third Pole Therapeutics:</h3> 
+                <button className="btn btn-dark rounded-circle d-flex align-items-center justify-content-center company-info-button" 
+                onClick={() => handleShowCompany(companies[1])}>
+                    <FaQuestion />
+                </button>
+            </div>
             <div className="work-experience">
                 <div className="work-experience-content">
                     <p className="work-description">This role provided an incredible opportunity to immerse myself in a startup environment, where I gained
@@ -115,7 +172,13 @@ function Home() {
 
             <div className="container mt-5">
             <div className="card p-4 shadow-lg">
-            <h3 className="company-name">Keolis:</h3>
+            <div className="d-flex align-items-center">
+                <h3 className="company-name me-2">Keolis:</h3> 
+                <button className="btn btn-dark rounded-circle d-flex align-items-center justify-content-center company-info-button" 
+                onClick={() => handleShowCompany(companies[2])}>
+                    <FaQuestion />
+                </button>
+            </div>
             <div className="work-experience">
                 <div className="work-experience-image">
                     <img src="../public/keolis-logo3.png" alt="Keolis logo" />
@@ -134,6 +197,23 @@ This experience allowed me to develop a strong technical foundation while gainin
             </div>
             </div>
             </div>
+
+            <Modal show={showCompany} onHide={handleCloseCompany} animation={false}>
+                <Modal.Header closeButton>
+                    <Modal.Title>{selectedCompany.name}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                {selectedCompany.description.split("\n\n").map((paragraph, index) => (
+                <span key={index}>
+                {paragraph}
+                <br /><br />
+                </span>
+                ))}
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleCloseCompany}>Close</Button>
+                </Modal.Footer>
+            </Modal>
             
         </div>
         
