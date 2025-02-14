@@ -34,52 +34,58 @@ function ContactForm() {
 
     return(
         <div className="container mt-5">
-      <div className="card p-4 shadow-lg">
-        <h2 className="text-center mb-4">Contact Me</h2>
-        {isSubmitted ? (
-          <div className="alert alert-success">Message sent successfully!</div>
-        ) : (
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label className="form-label">Name</label>
-              <input
-                type="text"
-                name="name"
-                className="form-control"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Email</label>
-              <input
-                type="email"
-                name="email"
-                className="form-control"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Message</label>
-              <textarea
-                name="message"
-                className="form-control"
-                rows="4"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <button type="submit" className="btn btn-primary w-100">
-              Send Message
-            </button>
-          </form>
-        )}
+        <div className="card p-4 shadow-lg">
+          <h2 className="text-center mb-4">Leave a Comment or Question</h2>
+          {isSubmitted ? (
+            <div className="alert alert-success">Message sent successfully!</div>
+          ) : (
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3 row align-items-center">
+                <label className="col-sm-3 col-form-label text-start">Name</label>
+                <div className="col-sm-9">
+                  <input
+                    type="text"
+                    name="name"
+                    className="form-control"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="mb-3 row align-items-center">
+                <label className="col-sm-3 col-form-label text-start">Email</label>
+                <div className="col-sm-9">
+                  <input
+                    type="email"
+                    name="email"
+                    className="form-control"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="mb-3 row align-items-center">
+                <label className="col-sm-3 col-form-label text-start">Message</label>
+                <div className="col-sm-9">
+                  <textarea
+                    name="message"
+                    className="form-control"
+                    rows="4"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
+              <button type="submit" className="btn btn-primary w-100">
+                Send Message
+              </button>
+            </form>
+          )}
+        </div>
       </div>
-    </div>
-    )
+    );
 };
 export default ContactForm;

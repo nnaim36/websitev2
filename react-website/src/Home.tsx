@@ -62,12 +62,14 @@ function Home() {
                 worked as a software developer.
             </p>
         </div>
-        <div className="work">
+        <div className="work" id="work">
             <h2>Work Experience</h2>
             <div className="text-design">
                 <div className="left-side-td"></div>
                 <div className="right-side-td"></div>
             </div>
+            <div className="container mt-5">
+            <div className="card p-4 shadow-lg">
             <h3 className="company-name">Carlson Software:</h3>
             <div className="work-experience">
                 <div className="work-experience-image">
@@ -82,11 +84,14 @@ function Home() {
                     </p>
                 </div>
             </div>
+            </div>
+            </div>
+
+
+            <div className="container mt-5">
+            <div className="card p-4 shadow-lg">
             <h3 className="company-name">Third Pole Therapeutics:</h3>
             <div className="work-experience">
-                <div className="work-experience-image">
-                    <img src="../public/thirdpole-logo.png" alt="Third Pole Theraputics logo" />
-                </div>
                 <div className="work-experience-content">
                     <p className="work-description">This role provided an incredible opportunity to immerse myself in a startup environment, where I gained
                          firsthand experience in the full lifecycle of product development—from inception to final stages. One of 
@@ -100,8 +105,16 @@ function Home() {
                          This experience not only strengthened my technical skills but also deepened my understanding of problem-solving in fast-paced, high-stakes environments.
                     </p>
                 </div>
+                <div className="work-experience-image">
+                    <img src="../public/thirdpole-logo.png" alt="Third Pole Theraputics logo" />
+                </div>
                 
             </div>
+            </div>
+            </div>
+
+            <div className="container mt-5">
+            <div className="card p-4 shadow-lg">
             <h3 className="company-name">Keolis:</h3>
             <div className="work-experience">
                 <div className="work-experience-image">
@@ -119,12 +132,16 @@ This experience allowed me to develop a strong technical foundation while gainin
                 </div>
                 
             </div>
+            </div>
+            </div>
+            
         </div>
+        
 
         {/* Education section */}
-        <section id="education">
-            <Education id="education"/>
-        </section>
+
+        <Education />
+
 
         {/* Contact section */}
         <div className="contact" id = "contact">
@@ -139,11 +156,11 @@ This experience allowed me to develop a strong technical foundation while gainin
         </div>
 
         <div className="bottom-nav">
-                    <a href="https://github.com/YOUR_GITHUB" target="_blank" rel="noopener noreferrer" className="nav-item">
+                    <a href="https://github.com/nnaim36" target="_blank" rel="noopener noreferrer" className="nav-item">
                         <FaGithub className="icon" />
                     </a>
         
-                    <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener noreferrer" className="nav-item">
+                    <a href="https://www.linkedin.com/in/nile-naim-494647173/" target="_blank" rel="noopener noreferrer" className="nav-item">
                         <FaLinkedin className="icon" />
                     </a>
                 </div>

@@ -87,26 +87,30 @@
 }
 .quote {
   width: 50%;
-  background-color: black;
+  background-color: black; /* Background stays always visible */
   color: white;
   text-align: center;
   font-size: 1.5rem;
   font-style: italic;
   padding: 20px;
   box-sizing: border-box;
-  opacity: 0; /* Start fully hidden */
-  transform: translateY(20px); /* Start slightly below */
-  transition: opacity 1s ease-out, transform 1s ease-out;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100%;
+  position: relative; /* Ensures it stays in place */
 }
 
-/* When the quote becomes visible */
-.quote.visible {
-  opacity: 1; /* Fully visible */
-  transform: translateY(0); /* Move back to normal position */
+.quote p {
+  opacity: 0; /* Start hidden */
+  transform: translateY(20px); /* Start slightly below */
+  transition: opacity 0.8s ease-out, transform 1.8s ease-out;
+}
+
+/* When text becomes visible */
+.quote.visible p {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 
@@ -114,19 +118,17 @@
   position: fixed;
   top: 0;
   left: 0;
+  width: 100vw; /* Ensures it spans full viewport width */
   background: #333;
   color: white;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  flex-wrap: nowrap; /* Ensure content doesn't wrap */
-
-  overflow: hidden; /* Prevent content from getting cut */
-  width: calc(100% - 30px); /* Leaves space for scrollbar */
-  padding-right: 20px;
+  padding: 10px 20px; /* Adjust padding */
+  box-sizing: border-box;
 }
+
 
 .top-nav h1 {
   color: yellow;

@@ -23,7 +23,7 @@ const Education = () => {
     ];
 
     return (
-        <div className="container my-5" id="education-list">
+        <div className="container my-5" id="education">
             <h2 className="mb-4">Education</h2>
             <div className="text-design">
                 <div className="left-side-td"></div>
@@ -31,6 +31,8 @@ const Education = () => {
             </div>
 
             {/* Master's Degree */}
+            <div className="container mt-5">
+            <div className="card p-4 shadow-lg">
             <div className="row mb-5 align-items-center">
                 <div className="col-md-4 d-flex justify-content-center">
                     <img src="/Northeastern-University-Logo.png" alt="Northeastern logo" className="img-fluid" />
@@ -56,8 +58,12 @@ const Education = () => {
 
                 </div>
             </div>
+            </div>
+            </div>
 
             {/* Bachelor's Degree */}
+            <div className="container mt-5">
+            <div className="card p-4 shadow-lg">
             <div className="row align-items-center">
                 <div className="col-md-4 d-flex justify-content-center">
                     <img src="/Northeastern-University-Logo.png" alt="Northeastern logo" className="img-fluid" />
@@ -66,6 +72,8 @@ const Education = () => {
                     <p><strong>Northeastern University</strong></p>
                     <p>Bachelor's of Science in Mechanical Engineering</p>
                 </div>
+            </div>
+            </div>
             </div>
 
             {/* Modal for Course Details */}
