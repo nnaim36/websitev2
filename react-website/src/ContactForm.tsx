@@ -15,22 +15,30 @@ function ContactForm() {
     };
     
     const handleSubmit = (e) => {
-        e.preventDefault();
-        emailjs.send(
-            "your_service_id", // Replace with your EmailJS Service ID
-            "your_template_id", // Replace with your EmailJS Template ID
-            formData,
-            "your_user_id" // Replace with your EmailJS User ID
-        ).then(
-            () => {
-              setIsSubmitted(true);
-              setFormData({ name: "", email: "", message: "" });
-            },
-            (error) => {
-              console.error("Email sending failed:", error);
-            }
-        );
-    };
+      e.preventDefault();
+      
+      const emailParams = {
+          to_email: "nile90305@gmail.com",  // Fixed recipient
+          subject: formData.name, // Subject is the name
+          email: formData.email, // User's email
+          message: formData.message // Message content
+      };
+
+      emailjs.send(
+          "your_service_id", // Replace with your EmailJS Service ID
+          "your_template_id", // Replace with your EmailJS Template ID
+          emailParams,
+          "your_user_id" // Replace with your EmailJS User ID
+      ).then(
+          () => {
+            setIsSubmitted(true);
+            setFormData({ name: "", email: "", message: "" });
+          },
+          (error) => {
+            console.error("Email sending failed:", error);
+          }
+      );
+  };
 
     return(
         <div className="container mt-5">

@@ -113,19 +113,23 @@
   transform: translateY(0);
 }
 
+section {
+  height: 100vh; /* Make each section take full screen */
+  padding: 100px 20px;
+}
 
 .top-nav {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw; /* Ensures it spans full viewport width */
+  width: 100%;/* Problem: Covers scrollbar */
   background: #333;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1000;
-  padding: 10px 20px; /* Adjust padding */
+  z-index: 99; 
+  padding: 10px 20px; /* Adds height */
   box-sizing: border-box;
 }
 
@@ -147,10 +151,6 @@
   font-weight: bold;
 }
 
-section {
-  height: 100vh; /* Make each section take full screen */
-  padding: 100px 20px;
-}
 
 html {
   scroll-behavior: smooth;
@@ -199,7 +199,7 @@ html, body, #root {
   padding: 0;
   width: 100vw;
   height: 100vh;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+
 }
 
 section#home {
@@ -353,3 +353,15 @@ body{
   font-weight: bold;
   color: black;
 }
+
+.course-card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.course-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: #f8f9fa; /* Bootstrap light gray */
+}
+

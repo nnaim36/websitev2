@@ -92,16 +92,17 @@ const Education = () => {
                     <h5>Courses:</h5>
 
                     <div className="row">
-                        {courses.map((course, index) => (
-                            <div key={index} className="col-md-6">
-                                <li
-                                    className="list-group-item list-group-item-action"
-                                    onClick={() => handleShow(course)}
-                                    style={{ cursor: "pointer" }}
-                                >
-                                    {course.name}
-                                </li>
+                    {courses.map((course, index) => (
+                        <div key={index} className="col-md-6 mb-3">
+                            <div 
+                                className="card text-center shadow-sm p-3 course-card"
+                                onClick={() => handleShow(course)}
+                            >
+                                <div className="card-body">
+                                    <h5 className="card-title">{course.name}</h5>
+                                </div>
                             </div>
+                        </div>
                         ))}
                     </div>
 
