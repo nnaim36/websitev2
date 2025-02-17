@@ -1,6 +1,6 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaQuestion } from "react-icons/fa";
-import BottomNav from "./bottomNav";
+import BottomNav from "./BottomNav";
 import TopNav from "./TopNav";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ContactForm from "./ContactForm";
