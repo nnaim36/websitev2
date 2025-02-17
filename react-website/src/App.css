@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap');
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -70,15 +72,16 @@
 .profile-picture {
   width: 50%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .profile-picture img {
   width: 80%; /* Image takes 80% of its parent container */
   height: auto; /* Maintain aspect ratio */
-  max-width: 700px; /* Ensures the image doesn't get too large */
-  max-height: 700px;
+  max-width: 500px; /* Ensures the image doesn't get too large */
+  max-height: 500px;
   
   border-radius: 50%; /* Makes it a perfect circle */
   object-fit: cover; /* Ensures the image is cropped correctly inside the circle */
@@ -365,3 +368,9 @@ body{
   background-color: #f8f9fa; /* Bootstrap light gray */
 }
 
+
+.profile-title {
+  font-family: 'Teko', sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+}

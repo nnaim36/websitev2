@@ -7,6 +7,15 @@ import ContactForm from "./ContactForm";
 import Education from "./Education";
 import { useEffect, useState, useRef } from "react";
 import { Modal, Button } from "react-bootstrap";
+import AppLoading from 'expo-app-loading';
+import {
+  useFonts,
+  Teko_300Light,
+  Teko_400Regular,
+  Teko_500Medium,
+  Teko_600SemiBold,
+  Teko_700Bold,
+} from '@expo-google-fonts/teko';
 
 
 function Home() {
@@ -17,7 +26,7 @@ function Home() {
     const [showCompany,setShowCompany] = useState(false);
     const [selectedCompany, setSelectedCompany] = useState({ name: "", description: "" });
 
-    const handleShowCompany = (company) => {
+    const handleShowCompany = (company:any) => {
         setSelectedCompany(company);
         setShowCompany(true);
     }
@@ -82,8 +91,8 @@ function Home() {
 
         <div className="intro">
             <div className="profile-picture">
-            <img src="../public/profile.jpeg" alt="Profile" className="circular-image" />
-            <h2 className="profile-title">Software Developer</h2>
+                <img src="../public/profile.jpeg" alt="Profile" className="circular-image" />
+                <h2 className="profile-title">Software Developer</h2>
             </div>
             <div className={`quote ${isVisible ? "visible" : ""}`} ref={quoteRef}>
                 <p>"It always seems impossible until it’s done." – Nelson Mandela</p>
@@ -99,11 +108,21 @@ function Home() {
                 <div className="left-side-td"></div>
                 <div className="right-side-td"></div>
             </div>
-            <p className="work-description">I am a software developer that acquired a master’s degree in computer science in December 
-                2024. I have a wide range of professional experience with a half a decade in the transportation 
-                industry where I worked as a signal design engineer. I also had the opportunity to work for a medical 
-                device startup where I was in the software team. I eventually worked for a software company where I 
-                worked as a software developer.
+            <p className="work-description">
+                I am a software developer with a master’s degree in computer science, earned in December 2024. My professional 
+                journey spans multiple industries, including five years in transportation as a signal design engineer. I later 
+                transitioned to the medical device industry, where I contributed to a startup’s software team, and eventually joined 
+                a software company as a full-time developer.
+            </p>
+            <p className="work-description">
+            Beyond my career, I am passionate about reducing e-waste. I actively seek to expand my skills in repairing and restoring 
+            broken technology, believing that basic repair knowledge can significantly extend a product’s lifespan. I admire engineers 
+            who prioritize repairability in their designs and companies that provide repair parts and manuals to support sustainability.
+
+            </p>
+            <p className="work-description">
+            Outside of work, I enjoy exploring new technologies and learning new skills. Welcome to my website! Feel free to leave a 
+            message at the bottom of the page, and I’ll get back to you as soon as possible.
             </p>
         </div>
         <div className="work" id="work">
@@ -128,10 +147,19 @@ function Home() {
                 </div>
                 <div className="work-experience-content">
                     <p className="work-description">
-                    Founded in 1983, Carlson Software specializes in CAD design software, field data collection, and machine 
-                    control products for the land surveying, civil engineering, construction, and mining industries worldwide,
-                     providing one-source technology solutions from data collection to design to construction. Carlson Software’s 
-                     renowned dedication to customer service is unique in the industry.
+                    At this company, I was responsible for fixing reported software bugs, implementing 
+                    new features, and managing the testing system. I collaborated directly with software 
+                    users, gathering their feedback and turning their ideas into functional solutions.
+                    </p>
+                    <p className="work-description">
+                    Some of my key contributions included enhancing the labeling system in the field-to-finish
+                     routine and improving user control over report generation by allowing customization of
+                      displayed units. Additionally, I optimized the error logging system to ensure that warnings
+                       and errors encountered during project processing did not slow down the software.
+                    </p>
+                    <p className="work-description">
+                    For the testing system, I updated automation scripts to align results with expected outcomes,
+                     enhancing overall reliability and efficiency.
                     </p>
                 </div>
             </div>
@@ -154,12 +182,16 @@ function Home() {
                          firsthand experience in the full lifecycle of product development—from inception to final stages. One of 
                          the most exciting aspects of working at a startup is the ability to wear multiple hats, allowing me to 
                          contribute across various areas.
-                         I played a key role in the build system, initiating software builds and conducting thorough bug defect 
+                    </p>
+                    <p className="work-description">
+                        I played a key role in the build system, initiating software builds and conducting thorough bug defect 
                          verification testing. Additionally, I diagnosed and resolved software bugs, ensuring system stability. 
                          My responsibilities extended to handling Tier 3 medical devices, setting up tests for investigative analysis, 
                          and developing scripts that supported QA teams in identifying errors efficiently.
-                         
-                         This experience not only strengthened my technical skills but also deepened my understanding of problem-solving in fast-paced, high-stakes environments.
+                    </p>
+                    <p className="work-description">
+                    This experience not only strengthened my technical skills but also deepened my understanding of problem-solving in fast-paced,
+                     high-stakes environments.
                     </p>
                 </div>
                 <div className="work-experience-image">
@@ -184,13 +216,25 @@ function Home() {
                     <img src="../public/keolis-logo3.png" alt="Keolis logo" />
                 </div>
                 <div className="work-experience-content">
-                    <p className="work-description">I first joined Keolis as a co-op while attending Northeastern University, and after completing my undergraduate program, I returned to work with their signal design team.
+                    <p className="work-description">I first joined Keolis as a co-op while attending Northeastern University, and after 
+                        completing my undergraduate program, I returned to work with their signal design team.
 
-During my co-op, I had the opportunity to work on a variety of hands-on projects. I collaborated with the surveying team, conducting site visits to assess property lines and inspect bridges. Additionally, I created 3D models in AutoCAD for a train maintenance building, which was later used in a project proposal.
-
-As a Junior Engineer, my role involved updating signal plans using MicroStation and designing signal improvement plans for field implementation. I worked on modernizing signal systems by integrating LED lights in place of incandescent bulbs, incorporating relay logging, and making wire modifications to support the installation of crossing gates. I also had the opportunity to visit project sites and test software changes at control points, ensuring system reliability and functionality.
-
-This experience allowed me to develop a strong technical foundation while gaining valuable field exposure in transportation engineering.</p>
+                    </p>
+                    <p className="work-description">
+                    During my co-op, I had the opportunity to work on a variety of hands-on projects. I collaborated with the surveying team, 
+                    conducting site visits to assess property lines and inspect bridges. Additionally, I created 3D models in AutoCAD for a train 
+                    maintenance building, which was later used in a project proposal.
+                    </p>
+                    <p className="work-description">
+                    As a Junior Engineer, my role involved updating signal plans using MicroStation and designing signal improvement plans for field
+                     implementation. I worked on modernizing signal systems by integrating LED lights in place of incandescent bulbs, incorporating
+                      relay logging, and making wire modifications to support the installation of crossing gates. I also had the opportunity to 
+                      visit project sites and test software changes at control points, ensuring system reliability and functionality.
+                    </p>
+                    <p className="work-description">
+                    This experience allowed me to develop a strong technical foundation while gaining valuable field exposure in transportation 
+                    engineering.
+                    </p>
 
                 </div>
                 
