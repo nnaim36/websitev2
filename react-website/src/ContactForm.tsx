@@ -25,10 +25,10 @@ function ContactForm() {
       };
 
       emailjs.send(
-          "your_service_id", // Replace with your EmailJS Service ID
-          "your_template_id", // Replace with your EmailJS Template ID
+          "service_h6g7abg", // Replace with your EmailJS Service ID
+          "template_0f2ov2n", // Replace with your EmailJS Template ID
           emailParams,
-          "your_user_id" // Replace with your EmailJS User ID
+          "ReqPdwRdm7BbVyMu7" // Replace with your EmailJS User ID
       ).then(
           () => {
             setIsSubmitted(true);
