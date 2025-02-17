@@ -98,7 +98,7 @@ function Home() {
                 <p>"It always seems impossible until it’s done." – Nelson Mandela</p>
             </div>
         </div>
-        <div className="border w-100 vh-10 overflow-hidden">
+        <div className="border w-100 vh-10 overflow-hidden home-banner">
             <img src="../public/banner3.png" alt="forest banner" className="w-100 h-100 object-fit-cover" />
         </div>
         <section id="home-body">
@@ -108,6 +108,7 @@ function Home() {
                 <div className="left-side-td"></div>
                 <div className="right-side-td"></div>
             </div>
+            <div className="work-experience-content">
             <p className="work-description">
                 I am a software developer with a master’s degree in computer science, earned in December 2024. My professional 
                 journey spans multiple industries, including five years in transportation as a signal design engineer. I later 
@@ -124,6 +125,7 @@ function Home() {
             Outside of work, I enjoy exploring new technologies and learning new skills. Welcome to my website! Feel free to leave a 
             message at the bottom of the page, and I’ll get back to you as soon as possible.
             </p>
+            </div>
         </div>
         <div className="work" id="work">
             <h2>Work Experience</h2>
