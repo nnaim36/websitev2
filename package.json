@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@expo-google-fonts/teko": "^0.2.3",
+    "@netlify/plugin-nextjs": "^5.9.4",
     "bootstrap": "^5.3.3",
     "emailjs-com": "^3.2.0",
     "react-bootstrap": "^2.10.9",
