@@ -320,6 +320,7 @@ body{
   width: 100%;
   height: 6px; /* Adjust thickness */
   margin-top: 5px; /* Adjust spacing from <h2> */
+  margin-bottom: 10px;
 }
 
 .left-side-td {
@@ -373,4 +374,52 @@ body{
   font-family: 'Teko', sans-serif;
   font-weight: 700;
   font-size: 4rem;
+}
+
+section {
+  padding-top: 80px;
+}
+
+
+.work-description{
+  font-size: 1rem;
+  
+  text-align: justify;
+  background-color: black;
+  color:white;
+}
+
+
+html {
+  font-size: 16px; /* Default */
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px; /* Reduce text size on smaller screens */
+  }
+}
+
+
+.intro, .home-banner {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.home-banner{
+  margin-bottom: 20px;
+  
+}
+
+#about{
+  margin: top 200px;
+}
+
+#home-body{
+  padding-top:50px;
+}
+
+.work{
+  margin-top:50px;
 }
