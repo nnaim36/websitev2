@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Modal, Button } from "react-bootstrap";
+import Modal from "./Modal"; // Import the Tailwind modal component
+import Button from "react-bootstrap/Button";
+
 
 const Education = () => {
     const [show, setShow] = useState(false);
     const [selectedCourse, setSelectedCourse] = useState({ name: "", description: "" });
 
-    const handleShow = (course) => {
+    const handleShow = (course:any) => {
         setSelectedCourse(course);
         setShow(true);
     };
@@ -73,6 +75,7 @@ const Education = () => {
 
     return (
         <div className="container my-5" id="education">
+            <h2 className="text-red-500 font-bold text-center">Tailwind is Working!</h2>
             <h2 className="mb-4">Education</h2>
             <div className="text-design">
                 <div className="left-side-td"></div>
@@ -127,14 +130,8 @@ const Education = () => {
             </div>
 
             {/* Modal for Course Details */}
-            <Modal show={show} onHide={handleClose} animation={false}>
-                <Modal.Header closeButton>
-                    <Modal.Title>{selectedCourse.name}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>{selectedCourse.description}</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>Close</Button>
-                </Modal.Footer>
+            <Modal isOpen={show} onClose={handleClose} title={selectedCourse.name}>
+                <p>{selectedCourse.description}</p>
             </Modal>
         </div>
     );
