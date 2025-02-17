@@ -91,7 +91,7 @@ function Home() {
 
         <div className="intro">
             <div className="profile-picture">
-                <img src="../public/profile.jpeg" alt="Profile" className="circular-image" />
+                <img src="/profile.jpeg" alt="Profile" className="circular-image" />
                 <h2 className="profile-title">Software Developer</h2>
             </div>
             <div className={`quote ${isVisible ? "visible" : ""}`} ref={quoteRef}>
@@ -99,7 +99,7 @@ function Home() {
             </div>
         </div>
         <div className="border w-100 vh-10 overflow-hidden home-banner">
-            <img src="../public/banner3.png" alt="forest banner" className="w-100 h-100 object-fit-cover" />
+            <img src="/banner3.png" alt="forest banner" className="w-100 h-100 object-fit-cover" />
         </div>
         <section id="home-body">
         <div className="about" id="about">
@@ -145,7 +145,7 @@ function Home() {
             </div>
             <div className="work-experience">
                 <div className="work-experience-image">
-                    <img src="../public/Carlson-Pyramid-Logo.png" alt="Carlson Software Logo" />
+                    <img src="/Carlson-Pyramid-Logo.png" alt="Carlson Software Logo" />
                 </div>
                 <div className="work-experience-content">
                     <p className="work-description">
@@ -197,7 +197,7 @@ function Home() {
                     </p>
                 </div>
                 <div className="work-experience-image">
-                    <img src="../public/thirdpole-logo.png" alt="Third Pole Theraputics logo" />
+                    <img src="/thirdpole-logo.png" alt="Third Pole Theraputics logo" />
                 </div>
                 
             </div>
