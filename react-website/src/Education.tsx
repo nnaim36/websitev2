@@ -1,17 +1,18 @@
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Modal, Button } from "react-bootstrap";
+
+import CustomModal from "./CustomModal";
 
 const Education = () => {
-    const [show, setShow] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const [selectedCourse, setSelectedCourse] = useState({ name: "", description: "" });
 
-    const handleShow = (course) => {
+    const handleShow = (course:any) => {
         setSelectedCourse(course);
-        setShow(true);
+        setShowModal(true);
     };
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => setShowModal(false);
 
     const courses = [
         { 
@@ -127,15 +128,9 @@ const Education = () => {
             </div>
 
             {/* Modal for Course Details */}
-            <Modal show={show} onHide={handleClose} animation={false}>
-                <Modal.Header closeButton>
-                    <Modal.Title>{selectedCourse.name}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>{selectedCourse.description}</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>Close</Button>
-                </Modal.Footer>
-            </Modal>
+            <CustomModal show={showModal} onClose={handleClose} title={selectedCourse.name}>
+                 <p>{selectedCourse.description}</p>
+            </CustomModal>
         </div>
     );
 };

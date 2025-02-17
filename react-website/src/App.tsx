@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+/*import { useState } from 'react';*/
+/*import { BrowserRouter as Router, Route, Link } from 'react-router-dom';*/
 import './App.css';
 import Home from './Home';
-import TopNav from './TopNav';
-import BottomNav from './bottomNav';
+/*import TopNav from './TopNav';*/
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  /*const [count, setCount] = useState(0)*/
 
   return (
     <>

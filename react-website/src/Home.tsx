@@ -1,13 +1,15 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaQuestion } from "react-icons/fa";
-import BottomNav from "./bottomNav";
+/*import BottomNav from "./BottomNav";*/
 import TopNav from "./TopNav";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ContactForm from "./ContactForm";
 import Education from "./Education";
 import { useEffect, useState, useRef } from "react";
-import { Modal, Button } from "react-bootstrap";
-import AppLoading from 'expo-app-loading';
+
+/*import AppLoading from 'expo-app-loading';*/
+import CustomModal from "./CustomModal";
+/*
 import {
   useFonts,
   Teko_300Light,
@@ -16,6 +18,7 @@ import {
   Teko_600SemiBold,
   Teko_700Bold,
 } from '@expo-google-fonts/teko';
+ */
 
 
 function Home() {
@@ -244,22 +247,11 @@ function Home() {
             </div>
             </div>
 
-            <Modal show={showCompany} onHide={handleCloseCompany} animation={false}>
-                <Modal.Header closeButton>
-                    <Modal.Title>{selectedCompany.name}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                {selectedCompany.description.split("\n\n").map((paragraph, index) => (
-                <span key={index}>
-                {paragraph}
-                <br /><br />
-                </span>
-                ))}
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleCloseCompany}>Close</Button>
-                </Modal.Footer>
-            </Modal>
+            <CustomModal show={showCompany} onClose={handleCloseCompany} title={selectedCompany.name}>
+                    {selectedCompany.description.split("\n\n").map((paragraph, index) => (
+                        <p key={index}>{paragraph}</p>
+                    ))}
+            </CustomModal>
             
         </div>
         
