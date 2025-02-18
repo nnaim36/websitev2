@@ -218,7 +218,7 @@ function Home() {
             </div>
             <div className="work-experience">
                 <div className="work-experience-image">
-                    <img src="../public/keolis-logo3.png" alt="Keolis logo" />
+                    <img src="/keolis-logo3.png" alt="Keolis logo" />
                 </div>
                 <div className="work-experience-content">
                     <p className="work-description">I first joined Keolis as a co-op while attending Northeastern University, and after 
