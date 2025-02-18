@@ -1,9 +1,9 @@
 [build]
-    command = "npm run build"
-    publish = "/build"
-    base = "/"
+  base = "react-website"  # Ensure Netlify starts in the correct directory
+  command = "npm run build"
+  publish = "dist"  # Change to "dist" because Vite builds here
 
 [[redirects]]
-    from ="/*"
-    to = "/index.html"
-    status =200
+  from = "/*"
+  to = "/index.html"
+  status = 200
