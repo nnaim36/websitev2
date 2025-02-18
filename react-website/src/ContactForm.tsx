@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import emailjs from "emailjs-com";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -80,7 +80,7 @@ function ContactForm() {
                   <textarea
                     name="message"
                     className="form-control"
-                    rows="4"
+                    rows={4}
                     value={formData.message}
                     onChange={handleChange}
                     required
